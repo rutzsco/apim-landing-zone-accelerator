@@ -1,0 +1,30 @@
+trigger:
+- main
+
+name: Deploy APIM Stack
+
+variables:
+  azureServiceConnection: 'Demo Account'
+  resourceGroupName: 'rutzsco-apim-internal'
+  vmResourceGroupName: 'rutzsco-infra-vm-eastus'
+  location: 'eastus'
+  environmentName: 'APIM-ESLZ'
+  deploymentName: 'api-management-ESLZ'
+  workloadName: 'Api-Management-ESLZ'
+  eslzEnvironmentType: 'dev'
+  templateFile: 'reference-implementations/AppGW-IAPIM-Func/bicep/main.bicep'
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: $(serviceConnectionName)
+    scriptType: 'pscore'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+      echo "using serviceconnection :" $(serviceConnectionName)
+      az deployment sub create --location $(location) --name $(deploymentName) --template-file $(templateFile) --parameters workloadName=$(workloadName) environment=$(eslzEnvironmentType)
+
+      
+      
