@@ -9,7 +9,7 @@ variables:
   location: 'eastus'
   environmentName: 'APIM-ESLZ'
   deploymentName: 'api-management-ESLZ'
-  workloadName: 'Api-Management-ESLZ'
+  workloadName: 'apim-eslz'
   eslzEnvironmentType: 'dev'
   CICDAgentType: 'azuredevops'
   appGatewayCertType: 'selfsigned'
