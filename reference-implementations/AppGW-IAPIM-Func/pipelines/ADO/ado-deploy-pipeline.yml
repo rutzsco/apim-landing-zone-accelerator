@@ -25,7 +25,7 @@ steps:
     scriptLocation: 'inlineScript'
     inlineScript: |
       echo "using serviceconnection :" $(azureServiceConnection)
-      az deployment sub create --location $(location) --name $(deploymentName) --template-file $(templateFile) --parameters workloadName=$(workloadName) environment=$(eslzEnvironmentType) CICDAgentType=$(CICDAgentType) accountName=rutzsco appGatewayCertType=$(appGatewayCertType) certificatePassword=TBD personalAccessToken=TBD vmPassword=$(vmPassword) vmUsername=developer 
+      az deployment sub create --location $(location) --name $(deploymentName) --template-file $(templateFile) --parameters workloadName=$(workloadName) environment=$(eslzEnvironmentType) CICDAgentType=$(CICDAgentType) accountName=rutzsco appGatewayCertType=$(appGatewayCertType) appGatewayFqdn='rutzscolabs.com' certificatePassword=TBD personalAccessToken=TBD vmPassword=$(vmPassword) vmUsername=developer 
 
       
       
