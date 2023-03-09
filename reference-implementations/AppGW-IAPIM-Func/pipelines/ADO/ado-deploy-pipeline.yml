@@ -6,7 +6,6 @@ name: Deploy APIM Stack
 variables:
   azureServiceConnection: 'Demo Account'
   resourceGroupName: 'rutzsco-apim-internal'
-  vmResourceGroupName: 'rutzsco-infra-vm-eastus'
   location: 'eastus'
   environmentName: 'APIM-ESLZ'
   deploymentName: 'api-management-ESLZ'
@@ -19,7 +18,7 @@ pool:
 steps:
 - task: AzureCLI@2
   inputs:
-    azureSubscription: $(serviceConnectionName)
+    azureSubscription: $(azureServiceConnection)
     scriptType: 'pscore'
     scriptLocation: 'inlineScript'
     inlineScript: |
