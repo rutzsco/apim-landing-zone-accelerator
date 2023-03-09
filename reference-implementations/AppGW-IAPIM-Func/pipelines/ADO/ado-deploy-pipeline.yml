@@ -22,7 +22,7 @@ steps:
     scriptType: 'pscore'
     scriptLocation: 'inlineScript'
     inlineScript: |
-      echo "using serviceconnection :" $(serviceConnectionName)
+      echo "using serviceconnection :" $(azureServiceConnection)
       az deployment sub create --location $(location) --name $(deploymentName) --template-file $(templateFile) --parameters workloadName=$(workloadName) environment=$(eslzEnvironmentType)
 
       
